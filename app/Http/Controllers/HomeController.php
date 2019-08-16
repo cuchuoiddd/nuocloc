@@ -27,45 +27,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::whereType('1')->get();
-        $categories = $this->buildMenu($categories,null);
-        return view('frontend.home')->with(compact('categories'));
-    }
-    public function articles(Request $request)
-    {
-        $exclude_categories = [];
-        $sidebarCategories = Category::where('show_sidebar','on')->get();
-        foreach($sidebarCategories as $cate){
-            array_push($exclude_categories,$cate->id);
-        }
-        $articles = Article::whereNotIn('category_id',$exclude_categories)->orderBy('created_at','desc')->orderBy('updated_at','desc')->paginate(10);
-        // dd($articles);
-        return view('frontend.article-category')->with(compact('articles'));
-    }
-    public function page($slug)
-    {
-        $page = Page::where('slug',$slug)->firstOrFail();
-        return view('frontend.page')->with(compact('page'));
-    }
-    public function article($slug)
-    {
-        $article = Article::where('slug',$slug)->firstOrFail();
-        $article->views++;
-        $article->save();
-        return view('frontend.article')->with(compact('article'));
+        // $categories = Category::whereType('1')->get();
+        // $categories = $this->buildMenu($categories,null);
+        return view('frontend.home');
     }
     public function products($slug = null)
     {
-        $mainCate = null;
-        if($slug){
-            $mainCate = Category::whereType('1')->whereSlug($slug)->first();
-            if(!isset($mainCate)) abort(404);
+        // $mainCate = null;
+        // if($slug){
+        //     $mainCate = Category::whereType('1')->whereSlug($slug)->first();
+        //     if(!isset($mainCate)) abort(404);
 
-        }
-        $categories = Category::whereType('1')->get();
-        $category_id = isset($mainCate) ?  $mainCate->id : null;
-        $categories = $this->buildMenu($categories,$category_id);
-        return view('frontend.product-category')->with(compact('categories','mainCate'));
+        // }
+        // $categories = Category::whereType('1')->get();
+        // $category_id = isset($mainCate) ?  $mainCate->id : null;
+        // $categories = $this->buildMenu($categories,$category_id);
+        return view('frontend.product-category');
     }
     public function product($slug = null)
     {
@@ -75,6 +52,29 @@ class HomeController extends Controller
         $product = Product::whereSlug($slug)->first();
         if(!isset($product)) abort(404);
         return view('frontend.product')->with(compact('product','phone'));
+    }
+    public function articles(Request $request)
+    {
+        // $exclude_categories = [];
+        // $sidebarCategories = Category::where('show_sidebar','on')->get();
+        // foreach($sidebarCategories as $cate){
+        //     array_push($exclude_categories,$cate->id);
+        // }
+        // $articles = Article::whereNotIn('category_id',$exclude_categories)->orderBy('created_at','desc')->orderBy('updated_at','desc')->paginate(10);
+        // dd($articles);
+        return view('frontend.article-category');
+    }
+    public function page($slug)
+    {
+        $page = Page::where('slug',$slug)->firstOrFail();
+        return view('frontend.page')->with(compact('page'));
+    }
+    public function article($slug)
+    {
+        // $article = Article::where('slug',$slug)->firstOrFail();
+        // $article->views++;
+        // $article->save();
+        return view('frontend.article');
     }
     public function buildMenu($items,$parent_id)
     {
