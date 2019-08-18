@@ -33,10 +33,10 @@ class CategoryController extends Controller
     public function create()
     {
         $isAdd = true;
-        $id = 2;
+        // $id = 2;
         $categories = Category::orderBy('updated_at','desc')->orderBy('id','desc')->get();
        
-        return view('admin.category',compact('isAdd','id','categories'));
+        return view('admin.category',compact('isAdd','categories'));
     }
 
     /**
@@ -64,6 +64,7 @@ class CategoryController extends Controller
             $data['image'] = $this->fileUpload->uploadImage(Directory::UPLOAD_CATEGORY,$request->image);
         }
         $type = $request->input('type') == 0 ? "articles" : "products";
+        // dd($data);
         $category = Category::create($data);
         if($category){
             return redirect('admin/category/'.$type);

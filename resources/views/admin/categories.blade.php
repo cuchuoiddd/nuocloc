@@ -19,10 +19,8 @@
                             <th>STT</th>
                             <th>Tiêu đề</th>
                             <th>Vị trí</th>
-                            <th>Parent</th>
                             <th>Meta title</th>
                             <th>Meta description</th>
-                            <th>Hiển thị sidebar</th>
                             <th>Hành động</th>
                         </tr>
                     </thead>
@@ -32,14 +30,8 @@
                             <td>{{$key+1}}</td>
                             <td>{{$category->title}}</td>
                             <td>{{$category->position}}</td>
-                            <td>
-                                @if ($category->parent_category )
-                                {{$category->parent_category->title}}
-                                @endif
-                            </td>
                             <td>{{$category->metatitle}}</td>
                             <td>{{$category->metadescription}}</td>
-                            <td>{{$category->show_sidebar}}</td>
                             <td class="action">
                                 <div class="btn-group">
                                     <form action="{{ url('admin/category/'.$category->id) }}" method="POST">

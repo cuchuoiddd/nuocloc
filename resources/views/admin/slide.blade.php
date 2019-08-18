@@ -48,13 +48,6 @@
                                     <input type="file" name="image">
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Sidebar Quảng cáo</label>
-                                <div class="col-sm-10">
-                                    <input type="checkbox" id="inputPassword3" placeholder="Meta title"
-                                        name="sidebar_qc" {{isset($slide) && $slide->sidebar_qc == 1 ? 'checked' : ''}}>
-                                </div>
-                            </div>
                         </div>
 
 

@@ -18,7 +18,6 @@
                                 <th>Hình ảnh</th>
                                 <th>Thứ tự</th>
                                 <th>Url</th>
-                                <th>Sidebar quảng cáo</th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>
@@ -26,13 +25,9 @@
                             @foreach($slide as $key=>$st)
                             <tr>
                                 <td>{{$key + 1}}</td>
-                                <td><img src="{{url($st->image)}}" alt="{{$st->alt_banner}}" style="width:300px;"></td>
+                                <td><img src="{{url($st->image)}}" alt="{{$st->alt_banner}}" style="width:180px;"></td>
                                 <td>{{$st->position}}</td>
                                 <td>{{$st->url}}</td>
-                                <!-- <td>{{$st->copy_right}}</td> -->
-                                <td class="aaa">
-                                    <input data_id={{$st->id}} {{$st->sidebar_qc == 1 ? "checked" : ""}} type="checkbox" class="switch_1 sidebar_qc" name="sidebar_qc">
-                                </td>
                                 <td class="action">
                                     <div class="btn-group">
                                         <form action="{{ url('admin/slides/'.$st->id) }}" method="POST">

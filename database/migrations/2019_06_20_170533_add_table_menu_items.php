@@ -18,7 +18,8 @@ class AddTableMenuItems extends Migration
             $table->integer('menu_id');
             $table->string('title');
             $table->text('url');
-            $table->integer('position');
+            $table->integer('position')->nullable();
+            $table->boolean('external')->nullable();
             $table->timestamps();
         });
     }

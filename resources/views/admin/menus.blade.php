@@ -26,12 +26,23 @@
                         <tr>
                             <td>#{{$key+1}}</td>
                             <td class="title">{{$menu->title}}</td>
-                            <td class="action">
+                            {{-- <td class="action">
                                 <div class="btn-group">
                                     <a href="{{url('admin/menus/'.$menu->id.'/edit')}}"
                                         class="btn btn-info">Sửa</a>
                                     <a data-toggle="modal" data-id="{{$menu->id}}" data-target="#modal-delete"
                                         class="btn btn-danger">Xóa</a>
+                                </div>
+                            </td> --}}
+                            <td class="action">
+                                <div class="btn-group">
+                                    <form action="{{url('admin/menus/'.$menu->id)}}" method="POST">
+                                        <a href="{{url('admin/menus/'.$menu->id.'/edit')}}"
+                                        class="btn btn-info">Sửa</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Xóa</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -46,15 +57,16 @@
 <div class="modal fade" id="modal-delete">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="" method="DELETE">
+            <form action="" method="POST">
                 @csrf
+                @method('DELETE')
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Xóa menu</h4>
                 </div>
                 <div class="modal-body">
-                    Bạn có chắc chắn muốn xóa bài viết : <strong><span class="title"></span></strong> ?
+                    Bạn có chắc chắn muốn xóa menu : <strong><span class="title"></span></strong> ?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Đóng</button>

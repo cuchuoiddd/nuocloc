@@ -11,7 +11,7 @@
 |
 */
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -30,13 +30,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', function () { return view('layouts.admin'); });
     Route::resource('category', 'CategoryController');
 
-    Route::get('pages/all', 'PageController@all');
     Route::get('articles/all', 'ArticleController@all');
     Route::get('products/all', 'ProductController@all');
     Route::get('categories/all', 'CategoryController@all');
 
 
-    Route::resource('pages', 'PageController');
     Route::resource('articles', 'ArticleController');
     Route::resource('products', 'ProductController');
     Route::resource('menus', 'MenuController');
@@ -44,5 +42,4 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('settings', 'SettingController');
     Route::get('slides/{id}/ajax-update','SlideController@ajaxUpdate');
     Route::resource('slides', 'SlideController');
-    Route::resource('policies', 'PolicyController');
 });

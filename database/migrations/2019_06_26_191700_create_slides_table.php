@@ -18,7 +18,6 @@ class CreateSlidesTable extends Migration
             $table->string('image');
             $table->string('url')->nullable();
             $table->integer('position')->nullable();
-            $table->boolean('sidebar_qc')->nullable();
             $table->timestamps();
         });
     }

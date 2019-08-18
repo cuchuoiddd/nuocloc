@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Parent</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="inputPassword3" name="parent_id">
@@ -103,7 +103,7 @@
                                         @endif
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group col-md-6">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Type</label>
                                 <div class="col-sm-10">
@@ -115,16 +115,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Hiển thị
-                                    sidebar</label>
-                                <div class="col-sm-10">
-                                    <input type="checkbox" id="inputPassword3" placeholder="Meta title"
-                                        name="show_sidebar" {{isset($category) && $category->show_sidebar == 'on' ? 'checked' : ''}}>
-                                </div>
-                            </div>
                             <div class="form-group col-md-6">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Upload Image</label>
                                 <div class="col-sm-10">
@@ -132,6 +122,14 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword3" class="col-sm-2 control-label">Upload Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="image">
+                                </div>
+                            </div>
+                        </div> --}}
 
                         @if (session('success'))
                         <div class="alert alert-danger">
