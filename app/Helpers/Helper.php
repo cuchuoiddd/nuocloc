@@ -32,6 +32,10 @@ class Helper
         }
         return Article::whereNotIn('category_id',$exclude_categories)->take(10)->orderBy('views','desc')->get();
     }
+    public static function getRelatedArticle($exclude_id = 0)
+    {
+        return Article::where('publish',1)->where('id','<>',$exclude_id)->take(4)->orderBy('views','desc')->get();
+    }
     public static function articlesSidebar()
     {
         $articles_sidebar = null;
@@ -61,9 +65,9 @@ class Helper
     public static function getSlide($isAdvertise)
     {
         if(!$isAdvertise){
-            $res = Slide::where('sidebar_qc','0')->orderBy('position')->get();
+            $res = Slide::orderBy('position')->get();
         }else{
-            $res = Slide::where('sidebar_qc','1')->orderBy('position')->firstOrFail();
+            $res = Slide::orderBy('position')->firstOrFail();
         }
         return $res;
     }

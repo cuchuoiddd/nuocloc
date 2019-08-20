@@ -33,18 +33,36 @@
         </div>
     </div>
 
-                <div class="navigation">
-        <ul>
-            <li class="active"><a href="index.html">Trang chủ</a></li>
-            <li class=""><a href="cau-chuyen-vinh-hao.html">Câu chuyện vĩnh hảo</a></li>
-        <li class=""><a href="{{url('danh-muc/san-pham')}}">Sản phẩm</a></li>
-            <li class="logo"><a href="{{url('/')}}" class="a-logo"><img alt="Vinh Hao" src="{{url('/images/site')}}/logo.png"></a></li>
-            <li class=""><a href="gioi-thieu.html">Giới thiệu</a></li>
-            <li class=""><a href="{{url('tin-tuc')}}">Tin tức & Sự kiện</a></li>
-            <li class=""><a href="codong/hoat-dong-co-dong.html">Quan hệ cổ đông</a></li>
-        </ul>
-        <div class="logo-mobile hidden-sm hidden-md hidden-lg">
-            <a href="{{url('/')}}"><img alt="" src="{{url('/images/site')}}/logo.png"></a>
-        </div>
+    <div class="navigation">
+        @php
+        $menu = Helper::getMenu('main-menu');
+        @endphp
+        @isset($menu)
+        @php
+            $isMeetMiddle = false;
+            $isActive = '';
+            $middle = count($menu->items)/2;
+        @endphp
+            <ul>
+                @for ($k = 0 ; $k < count($menu->items); $k++)
+                @php
+                    $item = $menu->items[$k];
+                    $isActive = (Request::fullUrl() == $item['url']) ? 'active' : '';
+                    if ($k == $middle && !$isMeetMiddle){
+                        echo '<li class="logo"><a href="'.url("/").'" class="a-logo"><img alt="Vinh Hao" src="'.url("/images/site").'/logo.png"></a></li>';
+                        $k = $k - 1;
+                        $isMeetMiddle = true;
+                        continue;
+                    }
+                @endphp
+                <li class={{$isActive}}><a @if($item['external']) target="_blank" @endif href="{{$item['url']}}">{{$item['title']}}</a></li>
+                @endfor
+                
+            </ul>
+            <div class="logo-mobile hidden-sm hidden-md hidden-lg">
+                <a href="{{url('/')}}"><img alt="" src="{{url('/images/site')}}/logo.png"></a>
+            </div>
+        @endisset
+        
     </div>
 </header>

@@ -41,21 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="policy" class="col-sm-2 control-label">policy</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control textarea" name="policy" id="policy" cols="30" rows="3">{{ $isAdd ? '' : $setting->policy }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="phone" class="col-sm-2 control-label">Phone</label>
-
-                                <div class="col-sm-10">
-                                    <textarea class="form-control textarea" placeholder='{icon:<i class="fa fa-address-book"></i>,HN:["0902 222 945","0917 346 883"],HCM:["0914 196 487"]}' name="phone" id="phone" cols="30" rows="3">{{ $isAdd ? '' : $setting->phone }}</textarea>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="row">
                             <div class="form-group col-md-6">

@@ -28,7 +28,7 @@
     </style>
     
     @php
-    //$settings = Helper::getSettings();
+    $settings = Helper::getSettings();
     //$phone = json_decode($settings->phone);
     @endphp
 </head>

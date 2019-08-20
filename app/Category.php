@@ -26,7 +26,7 @@ class Category extends Model
     public function products() {
         return $this->hasMany('App\Product');
     }
-    public function allProducts($num = 8) {
+    public function allProducts($num = 4) {
         $products = [];
         $child1Categories = $this->children;
         $products = array_merge($products,$this->products->toArray());
