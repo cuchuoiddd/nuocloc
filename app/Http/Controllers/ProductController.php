@@ -29,7 +29,7 @@ class ProductController extends Controller
     public function create()
     {
         $isEdit = false;
-        $categories = Category::all();
+        $categories = Category::where('type',1)->get();
         return view('admin.product')->with(compact('isEdit','categories'));
     }
 
