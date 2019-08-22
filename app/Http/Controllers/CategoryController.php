@@ -159,9 +159,11 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+        $type = $category->type == 0 ? "articles" : "products";
+
         $this->fileUpload->removeImage($category->image);
         $category->delete();
-        return redirect('admin/category');
+        return redirect('admin/category/'.$type);
     }
     public function all(Request $request)
     {

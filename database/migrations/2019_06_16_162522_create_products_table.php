@@ -21,12 +21,11 @@ class CreateProductsTable extends Migration
             $table->longText('content')->nullable();
             $table->integer('category_id')->nullable();
             $table->text('description')->nullable();
-            $table->integer('price')->nullable();
+            $table->string('the_tich')->nullable();
             $table->string('images')->nullable();
             $table->string('metatitle')->nullable();
             $table->text('metadescription')->nullable();
             $table->boolean('publish')->nullable();
-            $table->integer('views')->nullable();
             $table->timestamps();
         });
     }
