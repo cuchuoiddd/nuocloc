@@ -7,10 +7,10 @@
                 </button>
             </div>
         </div>
-        <div class="call-right">
+        <a class="call-right" href="tel:{{$settings->hotline}}}">
             <div class="call">
                 <span>Gọi nước bình 20 lít <i class="fa fa-caret-right" aria-hidden="true"></i></span>
-                <img src="{{url('/images/site')}}/bottle_top.png" alt="">
+                <img alt="{{$settings->alt_banner}}" src="{{url($settings->banner)}}">
             </div>
             <div class="close-map">
                 <span class="text">Đóng bản đồ</span>
@@ -22,15 +22,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
         <div class="hotline">
             <span>Hotline</span>
-            <a href="tel:18006068">18006068</a>
+            <a href="tel:{{$settings->hotline}}}">{{$settings->hotline}}</a>
         </div>
-        <div class="line"></div>
-        <div class="contact">
-            <a href="lien-he.html">Liên hệ</a>
-        </div>
+        {{-- <div class="line"></div> --}}
     </div>
 
     <div class="navigation">
@@ -49,7 +46,7 @@
                     $item = $menu->items[$k];
                     $isActive = (Request::fullUrl() == $item['url']) ? 'active' : '';
                     if ($k == $middle && !$isMeetMiddle){
-                        echo '<li class="logo"><a href="'.url("/").'" class="a-logo"><img alt="Vinh Hao" src="'.url("/images/site").'/logo.png"></a></li>';
+                        echo '<li class="logo"><a href="'.url("/").'" class="a-logo"><img alt="'.$settings->alt_logo.'" src="'.url($settings->logo).'"></a></li>';
                         $k = $k - 1;
                         $isMeetMiddle = true;
                         continue;
@@ -60,7 +57,7 @@
                 
             </ul>
             <div class="logo-mobile hidden-sm hidden-md hidden-lg">
-                <a href="{{url('/')}}"><img alt="" src="{{url('/images/site')}}/logo.png"></a>
+                <a href="{{url('/')}}"><img alt="'.$settings->alt_logo.'" src="{{url($settings->logo)}}"></a>
             </div>
         @endisset
         

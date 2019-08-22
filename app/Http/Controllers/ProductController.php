@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('updated_at','desc')->orderBy('id','desc')->get();
+        $products = Product::orderBy('created_at','desc')->orderBy('id','desc')->get();
         return view('admin.products')->with(compact('products'));
     }
 

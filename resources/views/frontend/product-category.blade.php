@@ -26,9 +26,17 @@
                 <div class="slider-product-listing" id="slider{{$k+1}}_product">
                 @isset($products)
                     @foreach ($products as $product)
+                    @php
+                    $images = json_decode($product['images']);
+                    @endphp
                     <div class="item">
                         <div class="img-w">
-                            <img src="../vinhhao-cms-production.s3-ap-southeast-1.amazonaws.com/iblock/232/2329d0ccb948e8129aec1d24a1f83a39.png" alt="" style="padding-top:47px">
+                                @if(isset($images[0]))
+                                <img src="{{url($images[0]->url)}}" alt="{{$product['title']}}" alt="{{$images[0]->alt}}" style="padding-top:47px;">
+                                @else
+                                <img src="{{url('/images/site/vh_01.png')}}" alt="{{$product['title']}}"
+                                    class="" style="padding-top:47px;">
+                                @endif
                         </div>
                         <div class="des">{{ Helper::truncate($product['description'],100) }}</div>
                         <p class="ml">{{$product['the_tich']}}</p>

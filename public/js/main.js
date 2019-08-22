@@ -190,11 +190,11 @@ $( document ).ready(function() {
     showMap = function(){
         var btn_call = $('.header-main .top-nav .call-right');
         btn_call.click(function(){
-            $(this).toggleClass('active');
-            // $('.header-main').toggleClass('fixed');
-            // $('.top-nav').toggleClass('fixed');
-            $('.map-w').toggleClass('show');
-            disscroll();
+            // $(this).toggleClass('active');
+            // // $('.header-main').toggleClass('fixed');
+            // // $('.top-nav').toggleClass('fixed');
+            // $('.map-w').toggleClass('show');
+            // disscroll();
         }); 
     };
     showMap();

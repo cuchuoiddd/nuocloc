@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    @php
+    $settings = Helper::getSettings();
+    @endphp
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,10 +30,7 @@
 		}
     </style>
     
-    @php
-    $settings = Helper::getSettings();
-    //$phone = json_decode($settings->phone);
-    @endphp
+    
 </head>
 
 <body class="home blog layout-default">

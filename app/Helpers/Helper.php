@@ -5,8 +5,10 @@ use App\Article;
 use App\Category;
 use App\Menu;
 use App\Slide;
+use App\Gallery;
 use App\Setting;
 use App\Policy;
+use App\Product;
 class Helper
 {
     public static function shout(string $string)
@@ -70,6 +72,14 @@ class Helper
             $res = Slide::orderBy('position')->firstOrFail();
         }
         return $res;
+    }
+    public static function getFeaturedProducts($num = 4)
+    {
+        return Product::where('isFeatured',1)->take($num)->orderBy('created_at','desc')->get();
+    }
+    public static function getGalleries()
+    {
+        return Gallery::orderBy('position')->get();
     }
     public static function getSettings()
     {
