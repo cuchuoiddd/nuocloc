@@ -1,9 +1,9 @@
 @extends('layouts.frontend')
 
 @php
-    //$settings = Helper::getSettings();
+    $settings = Helper::getSettings();
 @endphp
-@section('title','')
+@section('title',$settings->title)
 
 @section('header')
 

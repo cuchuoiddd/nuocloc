@@ -51,7 +51,7 @@ class SettingController extends Controller
     {
         $rules = array(
             'logo' => 'mimes:jpeg,jpg,png,gif|required|max:2048',
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:2048'
+            'banner' => 'mimes:jpeg,jpg,png,gif|required|max:2048'
           );
         // $validator = Validator::make($fileArray, $rules);
         $validator = Validator::make($request->all(), $rules);
@@ -64,16 +64,14 @@ class SettingController extends Controller
                 $message = 'File không hợp lệ';
                 return redirect()->back()->with('success', $message);
             }
-
             $data['logo'] = $this->fileUpload->uploadImage(Directory::UPLOAD_LOGO,$request->logo);
         }
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('banner')) {
             if ($validator->fails()){
                 $message = 'File không hợp lệ';
                 return redirect()->back()->with('success', $message);
             }
-
-            $data['image'] = $this->fileUpload->uploadImage(Directory::UPLOAD_BANNER,$request->image);
+            $data['banner'] = $this->fileUpload->uploadImage(Directory::UPLOAD_BANNER,$request->banner);
         }
         $setting->create($data);
         return redirect('admin/settings');
@@ -115,7 +113,7 @@ class SettingController extends Controller
     {
         $rules = array(
             'logo' => 'mimes:jpeg,jpg,png,gif|max:2048',
-            'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
+            'banner' => 'mimes:jpeg,jpg,png,gif|max:2048'
           );
         // $validator = Validator::make($fileArray, $rules);
         $validator = Validator::make($request->all(), $rules);
@@ -123,7 +121,7 @@ class SettingController extends Controller
 
         $setting = Setting::find($id);
         $logo_old = $setting->logo;
-        $banner_old = $setting->image;
+        $banner_old = $setting->banner;
         $data = $request->all();
         if ($validator->fails()){
             $message = 'File không hợp lệ';
@@ -132,15 +130,15 @@ class SettingController extends Controller
             if ($request->hasFile('logo')) {
                 $data['logo'] = $this->fileUpload->uploadImage(Directory::UPLOAD_LOGO,$request->logo);
             }
-            if ($request->hasFile('image')) {
-                $data['image'] = $this->fileUpload->uploadImage(Directory::UPLOAD_BANNER,$request->image);
+            if ($request->hasFile('banner')) {
+                $data['banner'] = $this->fileUpload->uploadImage(Directory::UPLOAD_BANNER,$request->banner);
             }
         }
         $setting->update($data);
         if($request->hasFile('logo')){
             $this->fileUpload->removeImage($logo_old);
         }
-        if($request->hasFile('image')){
+        if($request->hasFile('banner')){
             $this->fileUpload->removeImage($banner_old);
         }
         return redirect('admin/settings');

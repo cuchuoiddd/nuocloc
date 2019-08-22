@@ -43,6 +43,12 @@ class Directory
     /**
      * @var string
      */
+    const UPLOAD_GALLERY = '/images/gallery/';
+
+
+    /**
+     * @var string
+     */
     const UPLOAD_CATEGORY = '/images/category/';
 
     /**

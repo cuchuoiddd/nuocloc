@@ -41,40 +41,26 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="policy" class="col-sm-2 control-label">policy</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control textarea" name="policy" id="policy" cols="30" rows="3">{{ $isAdd ? '' : $setting->policy }}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="phone" class="col-sm-2 control-label">Phone</label>
-
-                                <div class="col-sm-10">
-                                    <textarea class="form-control textarea" placeholder='{icon:<i class="fa fa-address-book"></i>,HN:["0902 222 945","0917 346 883"],HCM:["0914 196 487"]}' name="phone" id="phone" cols="30" rows="3">{{ $isAdd ? '' : $setting->phone }}</textarea>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Upload Logo</label>
+                                <label for="inputPassword3" class="col-sm-2 control-label">Menu Logo</label>
                                 <div class="col-sm-10">
                                     <input type="file" name="logo">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Upload Banner</label>
+                                <label for="inputPassword" class="col-sm-2 control-label">Banner</label>
                                 <div class="col-sm-10">
-                                    <input type="file" name="image">
+                                    <input type="file" name="banner">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="alt_logo" class="col-sm-2 control-label">alt logo</label>
+                                <label for="alt_logo" class="col-sm-2 control-label">Alt Menu logo</label>
 
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="alt_logo" placeholder="alt logo"
@@ -82,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="alt_banner" class="col-sm-2 control-label">alt banner</label>
+                                <label for="alt_banner" class="col-sm-2 control-label">Alt banner</label>
 
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="alt_banner" placeholder="alt banner"
@@ -90,7 +76,54 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="hotline" class="col-sm-2 control-label">Hotline</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="hotline" placeholder="Hotline"
+                                        name="hotline" value="{{ $isAdd ? '' : $setting->hotline }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone" class="col-sm-2 control-label">Phone</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="phone" placeholder="Phone"
+                                        name="phone" value="{{ $isAdd ? '' : $setting->phone }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="caption_gallery_box" class="col-sm-2 control-label">Caption Gallery Box</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="caption_gallery_box" placeholder=""
+                                            name="caption_gallery_box" value="{{ $isAdd ? '' : $setting->caption_gallery_box }}">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                        <label for="url_gallery_box" class="col-sm-2 control-label">URL Gallery Box</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="url_gallery_box" placeholder=""
+                                                name="url_gallery_box" value="{{ $isAdd ? '' : $setting->url_gallery_box }}">
+                                        </div>
+                                    </div>
+                            </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="follow_us_at" class="col-sm-2 control-label">Follow us at</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="follow_us_at" placeholder=""
+                                        name="follow_us_at" value="{{ $isAdd ? '' : $setting->follow_us_at }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                    <label for="fanpage" class="col-sm-2 control-label">Facebook Fanpage</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="fanpage" placeholder=""
+                                            name="fanpage" value="{{ $isAdd ? '' : $setting->fanpage }}">
+                                    </div>
+                                </div>
+                        </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="copy_right" class="col-sm-2 control-label">Copyright</label>

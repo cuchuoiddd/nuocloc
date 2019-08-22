@@ -118,6 +118,14 @@
                         </label>
                     </div>
                 </div>
+                <div class="">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="isFeatured" @if(isset($product) && $product->isFeatured) checked
+                                @endif value=1>Hiển thị trên trang chủ
+                            </label>
+                        </div>
+                    </div>
             </div>
             <div class="form-group">
                 <label for="metatitle" class="control-label">Meta title</label>
