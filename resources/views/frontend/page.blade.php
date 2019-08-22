@@ -14,9 +14,10 @@
 @endsection
 
 @section('content')
-<section class="section1_ab2 section-top banner ">
+<section class="section1_ab2 section-top banner">
     <div class="text-w">
-    <h2 class="title-main white">{{$page->title}}</h2>
+        {{-- <h2 class="title-main white">{{$page->title}}</h2> --}}
+    <h2 class="title-main">{{$page->title}}</h2>
     </div>
 </section>
 <div class="clear"></div>
