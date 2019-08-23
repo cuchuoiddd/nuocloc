@@ -11,21 +11,10 @@ $( document ).ready(function() {
         CKEDITOR.replace($(editor).attr('id'))
     })
     $('.select2').select2()
+    $('.btn-save-alter').on('click',function(){
+        $('form[method="POST"]:not(#logout-form)').submit();
+    })
 
-
-    // $(".aaa input").click(function(e){
-    //     var checkbox = $('input[name="sidebar_qc"]').prop('checked');
-    //     var id = $(this).attr("data_id");
-    //     console.log(65456464,id);
-    //     $.ajax({
-    //        type:'get',
-    //        url:window.host + '/admin/slides/ajax-update',
-    //        data:{sidebar_qc:checkbox },
-    //        success:function(data){
-    //         console.log(8888);
-    //        }
-    //     });
-    // });
 
 
     $("body").on("click", ".sidebar_qc", function () {

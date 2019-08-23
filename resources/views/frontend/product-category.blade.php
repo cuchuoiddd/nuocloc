@@ -40,6 +40,8 @@
                         </div>
                         <div class="des">{{ Helper::truncate($product['description'],100) }}</div>
                         <p class="ml">{{$product['the_tich']}}</p>
+                        <h3 class="name">{{$product['title']}}</h3>
+                        <span class="money">{{(isset($product['price']) && $product['price']!= 0) ? number_format($product['price'], 0, '', ',').'đ' : ''}}</span>
                     </div>
                     @endforeach
                 @endisset
