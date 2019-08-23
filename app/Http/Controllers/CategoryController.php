@@ -4,17 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
-use Illuminate\Support\Facades\Validator;
-use App\Services\UploadService;
-use App\Constants\Directory;
 class CategoryController extends Controller
 {
-    private $fileUpload;
-
-    public function __construct(UploadService $fileUpload)
-    {
-        $this->fileUpload = $fileUpload;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -47,24 +38,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array(
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:2048'
-          );
-        // $validator = Validator::make($fileArray, $rules);
-        $validator = Validator::make($request->all(), $rules);
-
         $data = $request->all();
-        
-        if ($request->hasFile('image')) {
-            if ($validator->fails()){
-                $message = 'File không hợp lệ';
-                return redirect()->back()->with('success', $message);
-            }
-
-            $data['image'] = $this->fileUpload->uploadImage(Directory::UPLOAD_CATEGORY,$request->image);
-        }
         $type = $request->input('type') == 0 ? "articles" : "products";
-        // dd($data);
         $category = Category::create($data);
         if($category){
             return redirect('admin/category/'.$type);
@@ -116,35 +91,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = array(
-            'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
-          );
-        
-        $validator = Validator::make($request->all(), $rules);
-
         $category = Category::find($id);
-        $image_old = $category->image;
         $data = $request->all();
-
-        if ($request->hasFile('image') && $validator->fails()){
-            $message = 'File không hợp lệ';
-            dd($validator->fails());
-            return redirect()->back()->with('success', $message);
-        } else {
-            if ($request->hasFile('image')) {
-                $data['image'] = $this->fileUpload->uploadImage(Directory::UPLOAD_CATEGORY,$request->image);
-            }
-        }
-
         $type = $request->input('type') == 0 ? "articles" : "products";
-
-        // dd($data);
         $category->update($data);
-
-        if($request->hasFile('image')){
-            $this->fileUpload->removeImage($image_old);
-        }
-
         if($category){
             return redirect('admin/category/'.$type);
         }
@@ -160,8 +110,6 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $type = $category->type == 0 ? "articles" : "products";
-
-        $this->fileUpload->removeImage($category->image);
         $category->delete();
         return redirect('admin/category/'.$type);
     }

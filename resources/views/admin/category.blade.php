@@ -115,12 +115,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword3" class="col-sm-2 control-label">Upload Image</label>
-                                <div class="col-sm-10">
-                                    <input type="file" name="image">
-                                </div>
-                            </div>
                         </div>
                         {{-- <div class="row">
                             <div class="form-group col-md-6">
