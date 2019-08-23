@@ -44,10 +44,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="price" class="control-label">Thể tích</label>
+                        <label for="the_tich" class="control-label">Thể tích</label>
                         <div class="">
-                            <input type="text" class="form-control" id="price" name="the_tich" placeholder="Thể tích"
+                            <input type="text" class="form-control" id="the_tich" name="the_tich" placeholder="Thể tích"
                                 value="{{isset($product) ? $product->the_tich : ''}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="control-label">Giá</label>
+                        <div class="">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Giá"
+                                value="{{isset($product) ? $product->price : ''}}">
                         </div>
                     </div>
                 </div>
