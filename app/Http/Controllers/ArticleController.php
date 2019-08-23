@@ -37,7 +37,7 @@ class ArticleController extends Controller
     public function create()
     {
         $isEdit = false;
-        $categories = Category::all();
+        $categories = Category::where('type',0)->get();
         return view('admin.article')->with(compact('isEdit','categories'));
     }
 
