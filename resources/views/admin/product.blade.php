@@ -2,7 +2,7 @@
 @section('title', $isEdit ? 'Sửa sản phẩm' : 'Thêm sản phẩm')
 @section('pageTitle', $isEdit ? 'Sửa sản phẩm' : 'Thêm sản phẩm')
 @section('header-right')
-<button type="button" class="btn btn-block btn-primary">{{ $isEdit ? 'Lưu sản phẩm' : 'Lưu sản phẩm' }}</button>
+<button type="button" class="btn btn-block btn-primary btn-save-alter">{{ $isEdit ? 'Lưu sản phẩm' : 'Lưu sản phẩm' }}</button>
 @endsection
 @section('content')
 <form class="" action="{{url('admin/products/')}}" method="post" enctype="multipart/form-data">
